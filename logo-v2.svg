@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SplitKaro — Logo V2: Pure Typographic
+  Structure: "SPLIT" small + tracked (teal) / saffron rule / "KARO" large + bold
+  The weight + tracking contrast is the entire design system.
+  Adaptive: "KARO" body uses currentColor; "K" always saffron; "SPLIT" always teal
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 168 72"
+     width="168" height="72"
+     role="img"
+     aria-label="SplitKaro">
+  <title>SplitKaro</title>
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;800&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- ── "SPLIT" — small, tracked, teal ── -->
+  <text x="84" y="20"
+        text-anchor="middle"
+        font-family="'Baloo 2',system-ui,sans-serif"
+        font-size="11" font-weight="500"
+        fill="#2B7A77"
+        letter-spacing="6">SPLIT</text>
+
+  <!-- ── Saffron rule ── -->
+  <!-- Positioned to feel optical center between the two text lines -->
+  <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F09428"/>
+
+  <!-- ── "KARO" — large, extrabold, dark + saffron K ── -->
+  <text x="84" y="64"
+        text-anchor="middle"
+        font-family="'Baloo 2',system-ui,sans-serif"
+        font-size="42" font-weight="800"
+        letter-spacing="-1"
+        fill="currentColor"><!--
+      The K is always saffron; ARO inherits currentColor (dark on light, white on dark)
+    --><tspan fill="#E07B18">K</tspan>ARO</text>
+
+  <!-- ── Micro accent: two small teal dots flanking the rule ends ── -->
+  <circle cx="18" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+  <circle cx="150" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+</svg>

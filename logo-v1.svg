@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SplitKaro — Logo V1: Mark + Wordmark
+  Icon: 44×44 rounded badge, saffron/teal diagonal split, white Y-fork split arrow
+  Wordmark: "Split" (semibold, currentColor) + "Karo" (extrabold, saffron)
+  Adaptive: wordmark uses currentColor — set color:white on container for dark bg
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 248 56"
+     width="248" height="56"
+     role="img"
+     aria-label="SplitKaro">
+  <title>SplitKaro</title>
+
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&amp;display=swap');
+    </style>
+
+    <!-- Diagonal hard-stop: top-left saffron / bottom-right teal -->
+    <linearGradient id="v1-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="50%" stop-color="#F5A638"/>
+      <stop offset="50%" stop-color="#2B7A77"/>
+    </linearGradient>
+
+    <!-- Subtle inner shadow / depth on badge -->
+    <filter id="v1-shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#00000028"/>
+    </filter>
+  </defs>
+
+  <!-- ── Badge icon (44×44, centred in 56px height → y offset 6) ── -->
+  <g transform="translate(0,6)">
+    <!-- Rounded square with diagonal saffron / teal fill -->
+    <rect width="44" height="44" rx="10" ry="10"
+          fill="url(#v1-diag)" filter="url(#v1-shadow)"/>
+
+    <!-- Split-fork icon: single expense splits into two arrows (Y-fork) -->
+    <g fill="none" stroke="white" stroke-width="2.5"
+       stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <!-- Stem: single bill/expense enters from bottom -->
+      <line x1="22" y1="34" x2="22" y2="23"/>
+      <!-- Left branch: splits to person 1 -->
+      <line x1="22" y1="23" x2="12" y2="13"/>
+      <!-- Right branch: splits to person 2 -->
+      <line x1="22" y1="23" x2="32" y2="13"/>
+      <!-- Arrowhead left -->
+      <polyline points="9,17 12,13 16,10"/>
+      <!-- Arrowhead right -->
+      <polyline points="28,17 32,13 36,10"/>
+    </g>
+    <!-- Fork-point dot -->
+    <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+  </g>
+
+  <!-- ── Wordmark ── -->
+  <!-- Thin vertical separator rule -->
+  <rect x="52" y="14" width="1.5" height="28" rx="1"
+        fill="#E07B18" opacity="0.35"/>
+
+  <text x="60" y="37"
+        font-family="'Baloo 2','Arial Rounded MT Bold',system-ui,sans-serif"
+        font-size="27"
+        letter-spacing="-0.4"
+        fill="currentColor">
+    <!-- "Split" — semibold, inherits currentColor for light/dark adaptability -->
+    <tspan font-weight="600">Split</tspan><!--
+    --><tspan font-weight="800" fill="#E07B18">Karo</tspan>
+  </text>
+</svg>

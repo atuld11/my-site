@@ -1,0 +1,14 @@
+{
+  "name": "splitkaro-site",
+  "version": "1.0.0",
+  "description": "SplitKaro landing page with AI chatbot",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "pdf-lib": "^1.17.1"
+  }
+}

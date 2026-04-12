@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SplitKaro — Logo Showcase</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Reset + Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --saffron:      #F09428;
+      --saffron-dark: #E07018;
+      --teal:         #2B7A77;
+      --dark-bg:      #1B1208;
+      --light-bg:     #FAF8F2;
+      --surface:      #F2EEE5;
+      --text-dark:    #1E1508;
+      --text-muted:   #7A6A52;
+      --font-display: 'Baloo 2', system-ui, sans-serif;
+      --font-body:    'Nunito', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--light-bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #E8E0D0;
+    }
+
+    .page-header__label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.03em;
+    }
+
+    .page-header p {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ── Main grid ── */
+    .showcase {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      display: grid;
+      gap: 3rem;
+    }
+
+    /* ── Logo section ── */
+    .logo-section {}
+
+    .logo-section__title {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-section__title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #E0D8CB;
+    }
+
+    .logo-section__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.2rem 0.6rem;
+      background: var(--surface);
+      border: 1px solid #E0D8CB;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.05em;
+    }
+
+    .logo-section__panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    /* ── Panel ── */
+    .panel {
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      min-height: 200px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel--light {
+      background: #FFFFFF;
+      border: 1.5px solid #E8E0D0;
+    }
+
+    .panel--dark {
+      background: var(--dark-bg);
+      border: 1.5px solid #352A18;
+      color: #FFFFFF;
+    }
+
+    /* Subtle grid pattern on panels */
+    .panel--light::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(#F0E8D800 1px, transparent 1px),
+        linear-gradient(90deg, #F0E8D800 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .panel--dark::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .panel__logo-wrap {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .panel__logo-wrap svg {
+      display: block;
+      /* Make sure currentColor inherits from .panel */
+      color: inherit;
+    }
+
+    /* Sizes for larger display in showcase */
+    .panel--v1 .panel__logo-wrap svg {
+      width: 280px;
+      height: auto;
+    }
+
+    .panel--v2 .panel__logo-wrap svg {
+      width: 220px;
+      height: auto;
+    }
+
+    .panel__label {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .panel__label-bg {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .panel--light .panel__label-bg { color: var(--text-muted); }
+    .panel--dark  .panel__label-bg { color: rgba(255,255,255,0.45); }
+
+    /* ── Size strip ── */
+    .size-strip {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 2rem;
+      background: var(--surface);
+      border: 1px solid #E0D8CB;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+
+    .size-strip__title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      width: 100%;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .size-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .size-item__label {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #E0D8CB, transparent);
+      margin: 0;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      border-top: 1px solid #E8E0D0;
+    }
+
+    @media (max-width: 600px) {
+      .logo-section__panels { grid-template-columns: 1fr; }
+      .panel--v1 .panel__logo-wrap svg { width: 220px; }
+      .panel--v2 .panel__logo-wrap svg { width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Page header ── -->
+  <header class="page-header">
+    <div class="page-header__label">Brand Identity</div>
+    <h1>SplitKaro — Logo Showcase</h1>
+    <p>Two logo concepts · light &amp; dark background testing</p>
+  </header>
+
+  <main class="showcase">
+
+    <!-- ══════════════════════════════════════════
+         LOGO V1 — Mark + Wordmark
+    ══════════════════════════════════════════ -->
+    <section class="logo-section">
+      <div class="logo-section__title">
+        <span class="logo-section__badge">V1 &nbsp;·&nbsp; Mark + Wordmark</span>
+        Icon badge with saffron / teal diagonal split and white K, paired with wordmark
+      </div>
+
+      <div class="logo-section__panels">
+
+        <!-- Light panel -->
+        <div class="panel panel--light panel--v1">
+          <div class="panel__logo-wrap">
+            <!-- LOGO V1 INLINE (inherits color from panel) -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 248 56"
+                 role="img" aria-label="SplitKaro">
+              <title>SplitKaro</title>
+              <defs>
+                <linearGradient id="v1l-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                  <stop offset="50%" stop-color="#F5A638"/>
+                  <stop offset="50%" stop-color="#2B7A77"/>
+                </linearGradient>
+                <filter id="v1l-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#00000028"/>
+                </filter>
+              </defs>
+              <g transform="translate(0,6)">
+                <rect width="44" height="44" rx="10" ry="10" fill="url(#v1l-diag)" filter="url(#v1l-shadow)"/>
+                <g fill="none" stroke="white" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                  <line x1="22" y1="34" x2="22" y2="23"/>
+                  <line x1="22" y1="23" x2="12" y2="13"/>
+                  <line x1="22" y1="23" x2="32" y2="13"/>
+                  <polyline points="9,17 12,13 16,10"/>
+                  <polyline points="28,17 32,13 36,10"/>
+                </g>
+                <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+              </g>
+              <rect x="52" y="14" width="1.5" height="28" rx="1" fill="#E07B18" opacity="0.35"/>
+              <text x="60" y="37"
+                    font-family="'Baloo 2','Arial Rounded MT Bold',system-ui,sans-serif"
+                    font-size="27" letter-spacing="-0.4" fill="currentColor">
+                <tspan font-weight="600">Split</tspan><tspan font-weight="800" fill="#E07B18">Karo</tspan>
+              </text>
+            </svg>
+          </div>
+          <div class="panel__label">
+            <div class="panel__label-bg">On white</div>
+          </div>
+        </div>
+
+        <!-- Dark panel -->
+        <div class="panel panel--dark panel--v1">
+          <div class="panel__logo-wrap">
+            <!-- LOGO V1 INLINE — color:white inherited from .panel--dark -->
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 248 56"
+                 role="img" aria-label="SplitKaro">
+              <title>SplitKaro</title>
+              <defs>
+                <linearGradient id="v1d-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                  <stop offset="50%" stop-color="#F5A638"/>
+                  <stop offset="50%" stop-color="#2B7A77"/>
+                </linearGradient>
+                <filter id="v1d-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                  <feDropShadow dx="0" dy="1" stdDeviation="2" flood-color="#00000060"/>
+                </filter>
+              </defs>
+              <g transform="translate(0,6)">
+                <rect width="44" height="44" rx="10" ry="10" fill="url(#v1d-diag)" filter="url(#v1d-shadow)"/>
+                <g fill="none" stroke="white" stroke-width="2.5"
+                   stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                  <line x1="22" y1="34" x2="22" y2="23"/>
+                  <line x1="22" y1="23" x2="12" y2="13"/>
+                  <line x1="22" y1="23" x2="32" y2="13"/>
+                  <polyline points="9,17 12,13 16,10"/>
+                  <polyline points="28,17 32,13 36,10"/>
+                </g>
+                <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+              </g>
+              <rect x="52" y="14" width="1.5" height="28" rx="1" fill="#E07B18" opacity="0.5"/>
+              <text x="60" y="37"
+                    font-family="'Baloo 2','Arial Rounded MT Bold',system-ui,sans-serif"
+                    font-size="27" letter-spacing="-0.4" fill="currentColor">
+                <tspan font-weight="600">Split</tspan><tspan font-weight="800" fill="#F5A638">Karo</tspan>
+              </text>
+            </svg>
+          </div>
+          <div class="panel__label">
+            <div class="panel__label-bg">On dark</div>
+          </div>
+        </div>
+
+      </div><!-- /.logo-section__panels -->
+
+      <!-- Size scale preview -->
+      <div class="size-strip">
+        <div class="size-strip__title">Scale test — V1</div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 56" width="186" height="42">
+            <defs>
+              <linearGradient id="v1s1-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="50%" stop-color="#F5A638"/>
+                <stop offset="50%" stop-color="#2B7A77"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(0,6)">
+              <rect width="44" height="44" rx="10" ry="10" fill="url(#v1s1-diag)"/>
+              <g fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                <line x1="22" y1="34" x2="22" y2="23"/><line x1="22" y1="23" x2="12" y2="13"/><line x1="22" y1="23" x2="32" y2="13"/>
+                <polyline points="9,17 12,13 16,10"/><polyline points="28,17 32,13 36,10"/>
+              </g>
+              <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+            </g>
+            <rect x="52" y="14" width="1.5" height="28" rx="1" fill="#E07B18" opacity="0.35"/>
+            <text x="60" y="37" font-family="'Baloo 2',system-ui,sans-serif" font-size="27" letter-spacing="-0.4" fill="#1E1508">
+              <tspan font-weight="600">Split</tspan><tspan font-weight="800" fill="#E07B18">Karo</tspan>
+            </text>
+          </svg>
+          <span class="size-item__label">186px</span>
+        </div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 56" width="124" height="28">
+            <defs>
+              <linearGradient id="v1s2-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="50%" stop-color="#F5A638"/>
+                <stop offset="50%" stop-color="#2B7A77"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(0,6)">
+              <rect width="44" height="44" rx="10" ry="10" fill="url(#v1s2-diag)"/>
+              <g fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                <line x1="22" y1="34" x2="22" y2="23"/><line x1="22" y1="23" x2="12" y2="13"/><line x1="22" y1="23" x2="32" y2="13"/>
+                <polyline points="9,17 12,13 16,10"/><polyline points="28,17 32,13 36,10"/>
+              </g>
+              <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+            </g>
+            <rect x="52" y="14" width="1.5" height="28" rx="1" fill="#E07B18" opacity="0.35"/>
+            <text x="60" y="37" font-family="'Baloo 2',system-ui,sans-serif" font-size="27" letter-spacing="-0.4" fill="#1E1508">
+              <tspan font-weight="600">Split</tspan><tspan font-weight="800" fill="#E07B18">Karo</tspan>
+            </text>
+          </svg>
+          <span class="size-item__label">124px</span>
+        </div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 56" width="62" height="14">
+            <defs>
+              <linearGradient id="v1s3-diag" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+                <stop offset="50%" stop-color="#F5A638"/>
+                <stop offset="50%" stop-color="#2B7A77"/>
+              </linearGradient>
+            </defs>
+            <g transform="translate(0,6)">
+              <rect width="44" height="44" rx="10" ry="10" fill="url(#v1s3-diag)"/>
+              <g fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+                <line x1="22" y1="34" x2="22" y2="23"/><line x1="22" y1="23" x2="12" y2="13"/><line x1="22" y1="23" x2="32" y2="13"/>
+                <polyline points="9,17 12,13 16,10"/><polyline points="28,17 32,13 36,10"/>
+              </g>
+              <circle cx="22" cy="23" r="2.5" fill="white" opacity="0.95"/>
+            </g>
+            <rect x="52" y="14" width="1.5" height="28" rx="1" fill="#E07B18" opacity="0.35"/>
+            <text x="60" y="37" font-family="'Baloo 2',system-ui,sans-serif" font-size="27" letter-spacing="-0.4" fill="#1E1508">
+              <tspan font-weight="600">Split</tspan><tspan font-weight="800" fill="#E07B18">Karo</tspan>
+            </text>
+          </svg>
+          <span class="size-item__label">62px</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ══════════════════════════════════════════
+         LOGO V2 — Pure Typographic
+    ══════════════════════════════════════════ -->
+    <section class="logo-section">
+      <div class="logo-section__title">
+        <span class="logo-section__badge">V2 &nbsp;·&nbsp; Typographic</span>
+        Weight &amp; tracking contrast — tracked "SPLIT" over bold "KARO", no icon
+      </div>
+
+      <div class="logo-section__panels">
+
+        <!-- Light panel -->
+        <div class="panel panel--light panel--v2">
+          <div class="panel__logo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 168 72"
+                 role="img" aria-label="SplitKaro">
+              <title>SplitKaro</title>
+              <text x="84" y="20" text-anchor="middle"
+                    font-family="'Baloo 2',system-ui,sans-serif"
+                    font-size="11" font-weight="500"
+                    fill="#2B7A77" letter-spacing="6">SPLIT</text>
+              <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F09428"/>
+              <circle cx="18" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+              <circle cx="150" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+              <text x="84" y="64" text-anchor="middle"
+                    font-family="'Baloo 2',system-ui,sans-serif"
+                    font-size="42" font-weight="800"
+                    letter-spacing="-1" fill="#1E1508">
+                <tspan fill="#E07B18">K</tspan>ARO
+              </text>
+            </svg>
+          </div>
+          <div class="panel__label">
+            <div class="panel__label-bg">On white</div>
+          </div>
+        </div>
+
+        <!-- Dark panel -->
+        <div class="panel panel--dark panel--v2">
+          <div class="panel__logo-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 168 72"
+                 role="img" aria-label="SplitKaro">
+              <title>SplitKaro</title>
+              <!-- "SPLIT" stays teal — reads on dark -->
+              <text x="84" y="20" text-anchor="middle"
+                    font-family="'Baloo 2',system-ui,sans-serif"
+                    font-size="11" font-weight="500"
+                    fill="#6DBFBB" letter-spacing="6">SPLIT</text>
+              <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F5A638"/>
+              <circle cx="18" cy="28.25" r="2.5" fill="#6DBFBB" opacity="0.8"/>
+              <circle cx="150" cy="28.25" r="2.5" fill="#6DBFBB" opacity="0.8"/>
+              <!-- "KARO" in white, K always saffron -->
+              <text x="84" y="64" text-anchor="middle"
+                    font-family="'Baloo 2',system-ui,sans-serif"
+                    font-size="42" font-weight="800"
+                    letter-spacing="-1" fill="#FFFFFF">
+                <tspan fill="#F5A638">K</tspan>ARO
+              </text>
+            </svg>
+          </div>
+          <div class="panel__label">
+            <div class="panel__label-bg">On dark</div>
+          </div>
+        </div>
+
+      </div><!-- /.logo-section__panels -->
+
+      <!-- Size scale preview -->
+      <div class="size-strip">
+        <div class="size-strip__title">Scale test — V2</div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 72" width="168" height="72">
+            <text x="84" y="20" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="11" font-weight="500" fill="#2B7A77" letter-spacing="6">SPLIT</text>
+            <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F09428"/>
+            <circle cx="18" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <circle cx="150" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <text x="84" y="64" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="42" font-weight="800" letter-spacing="-1" fill="#1E1508">
+              <tspan fill="#E07B18">K</tspan>ARO
+            </text>
+          </svg>
+          <span class="size-item__label">168px</span>
+        </div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 72" width="112" height="48">
+            <text x="84" y="20" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="11" font-weight="500" fill="#2B7A77" letter-spacing="6">SPLIT</text>
+            <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F09428"/>
+            <circle cx="18" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <circle cx="150" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <text x="84" y="64" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="42" font-weight="800" letter-spacing="-1" fill="#1E1508">
+              <tspan fill="#E07B18">K</tspan>ARO
+            </text>
+          </svg>
+          <span class="size-item__label">112px</span>
+        </div>
+        <div class="size-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168 72" width="72" height="31">
+            <text x="84" y="20" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="11" font-weight="500" fill="#2B7A77" letter-spacing="6">SPLIT</text>
+            <rect x="18" y="27" width="132" height="1.5" rx="1" fill="#F09428"/>
+            <circle cx="18" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <circle cx="150" cy="28.25" r="2.5" fill="#2B7A77" opacity="0.7"/>
+            <text x="84" y="64" text-anchor="middle" font-family="'Baloo 2',system-ui,sans-serif" font-size="42" font-weight="800" letter-spacing="-1" fill="#1E1508">
+              <tspan fill="#E07B18">K</tspan>ARO
+            </text>
+          </svg>
+          <span class="size-item__label">72px</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         COLOR SYSTEM NOTE
+    ══════════════════════════════════════════ -->
+    <section style="background:var(--surface); border:1px solid #E0D8CB; border-radius:12px; padding:1.5rem 2rem;">
+      <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem;">Brand Colours in use</p>
+      <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center;">
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:28px; height:28px; border-radius:6px; background:#F09428; border:1px solid #E0D8CB;"></div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">Saffron<br/><span style="font-weight:400;">#F09428</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:28px; height:28px; border-radius:6px; background:#2B7A77; border:1px solid #E0D8CB;"></div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">Teal<br/><span style="font-weight:400;">#2B7A77</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:28px; height:28px; border-radius:6px; background:#1E1508; border:1px solid #E0D8CB;"></div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">Dark<br/><span style="font-weight:400;">#1E1508</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:28px; height:28px; border-radius:6px; background:#FAF8F2; border:1px solid #E0D8CB;"></div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">Warm white<br/><span style="font-weight:400;">#FAF8F2</span></span>
+        </div>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <div style="width:28px; height:28px; border-radius:6px; background:#1B1208; border:1px solid #E0D8CB;"></div>
+          <span style="font-size:0.78rem; color:var(--text-muted); font-weight:600;">Dark bg<br/><span style="font-weight:400;">#1B1208</span></span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="page-footer">
+    SplitKaro brand assets · logos-showcase.html · fonts: Baloo 2 (display)
+  </footer>
+
+</body>
+</html>

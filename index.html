@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplitKaro — Split without the stress</title>
+    <meta name="description" content="SplitKaro tracks every expense, splits every bill, and records every settlement — inside the WhatsApp group you already use.">
+
+    <!-- Open Graph / Social sharing (P1-9) -->
+    <!-- TODO: Replace og:url with your actual domain, and add a real og:image URL -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SplitKaro — Split without the stress">
+    <meta property="og:description" content="Track expenses, split bills, and settle debts — inside the WhatsApp group you already use.">
+    <meta property="og:url" content="https://splitkaro.co.in">
+    <meta property="og:image" content="https://splitkaro.co.in/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SplitKaro — Split without the stress">
+    <meta name="twitter:description" content="Track expenses, split bills, and settle debts — inside the WhatsApp group you already use.">
+
+    <!-- Favicon (P1-10) — using existing logo SVG -->
+    <link rel="icon" type="image/svg+xml" href="logo-v2.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Analytics 4 (P1-8) -->
+    <!-- TODO: Replace G-XXXXXXXXXX with your actual GA4 Measurement ID from analytics.google.com -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">SplitKaro</a>
+            <a href="#early-access" class="btn btn--nav">Get Early Access</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero__inner">
+            <div class="hero__content">
+                <div class="hero__eyebrow">Coming to WhatsApp near you</div>
+                <!-- P1-1: Headline rewritten to lead with WhatsApp differentiator -->
+                <h1 class="hero__headline">Your WhatsApp group<br>already knows who paid.</h1>
+                <p class="hero__subhead">SplitKaro tracks every expense, splits every bill, and records every settlement — inside the WhatsApp group you already use.</p>
+                <div class="hero__actions">
+                    <a href="#early-access" class="btn btn--primary">Get Early Access</a>
+                    <a href="#how-it-works" class="btn btn--ghost">See How It Works ↓</a>
+                </div>
+            </div>
+            <div class="hero__visual">
+                <div class="phone-frame">
+                    <div class="phone-header">
+                        <div class="phone-header__avatar"></div>
+                        <div class="phone-header__info">
+                            <span class="phone-header__name">Goa Trip 2024 🏖️</span>
+                            <!-- P0-3: Fixed from "6 members" — bot splits among 4, group is 4 -->
+                            <span class="phone-header__members">4 members</span>
+                        </div>
+                    </div>
+                    <div class="phone-chat">
+                        <div class="chat-bubble chat-bubble--sent">Paid ₹1800 for dinner 🍽️</div>
+                        <div class="chat-bubble chat-bubble--bot">Split among 4? ₹450 each</div>
+                        <div class="chat-bubble chat-bubble--sent">Yes</div>
+                        <div class="chat-bubble chat-bubble--bot">Done ✅ Amit, Neha &amp; Priya each owe ₹450 to Rahul</div>
+                    </div>
+                </div>
+                <div class="hero__badge hero__badge--1">₹450 each</div>
+                <div class="hero__badge hero__badge--2">✅ Settled</div>
+                <div class="hero__badge hero__badge--3">Balance: ₹0</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-label">The problem with every other solution</div>
+            <h2 class="section-heading">Every tool works.<br>Just not where you are.</h2>
+            <div class="problem__grid">
+                <div class="problem__card">
+                    <span class="problem__tool">Splitwise</span>
+                    <p>Works great — if you can convince your whole group to download it, sign up, and remember to open it.</p>
+                </div>
+                <div class="problem__card">
+                    <span class="problem__tool">Google Pay</span>
+                    <p>Tracks payments, not expenses. No ledger. No running total. No way to see who owes what.</p>
+                </div>
+                <div class="problem__card">
+                    <span class="problem__tool">Excel</span>
+                    <p>Works until someone forgets to update it. Then it's just a monument to the last time someone cared.</p>
+                </div>
+                <div class="problem__card">
+                    <span class="problem__tool">The WhatsApp thread</span>
+                    <p>Works until you need to find something from three weeks ago. Then you're scrolling for twenty minutes.</p>
+                </div>
+            </div>
+            <p class="problem__resolution">None of them live where the conversation happens. SplitKaro does.</p>
+        </div>
+    </section>
+
+    <!-- DEMO CHAT (P1-2: moved up to section 3) -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-label">See it in action</div>
+            <h2 class="section-heading">Here's what a real session looks like.</h2>
+            <div class="demo__inner">
+                <div class="demo-phone">
+                    <div class="demo-phone__header">
+                        <div class="demo-phone__back">←</div>
+                        <!-- P0-3: Fixed from "6 members" to match the 4-person split shown -->
+                        <div class="demo-phone__avatar">GT</div>
+                        <div class="demo-phone__info">
+                            <div class="demo-phone__name">Goa Trip 2024 🏖️</div>
+                            <div class="demo-phone__status">4 members</div>
+                        </div>
+                        <div class="demo-phone__icons">⋮</div>
+                    </div>
+                    <div class="demo-phone__chat" id="demo-chat">
+                        <div class="demo-date-label">Today</div>
+                        <div class="demo-msg demo-msg--user" data-delay="0">
+                            <div class="demo-msg__name">Rahul</div>
+                            <div class="demo-msg__bubble">Paid 1800 for dinner 🍽️</div>
+                            <div class="demo-msg__time">8:42 PM</div>
+                        </div>
+                        <div class="demo-msg demo-msg--bot" data-delay="700">
+                            <div class="demo-msg__name">SplitKaro</div>
+                            <div class="demo-msg__bubble">Split among 4? ₹450 each</div>
+                            <div class="demo-msg__time">8:42 PM</div>
+                        </div>
+                        <div class="demo-msg demo-msg--user" data-delay="1400">
+                            <div class="demo-msg__name">Rahul</div>
+                            <div class="demo-msg__bubble">Yes</div>
+                            <div class="demo-msg__time">8:43 PM</div>
+                        </div>
+                        <div class="demo-msg demo-msg--bot" data-delay="2100">
+                            <div class="demo-msg__name">SplitKaro</div>
+                            <div class="demo-msg__bubble">Done ✅ Amit, Neha, and Priya each owe ₹450 to Rahul.</div>
+                            <div class="demo-msg__time">8:43 PM</div>
+                        </div>
+                        <div class="demo-date-label" style="opacity:0;transition:opacity 400ms ease;transition-delay:2700ms" id="date-2">Two days later</div>
+                        <div class="demo-msg demo-msg--other" data-delay="2800">
+                            <div class="demo-msg__name">Amit</div>
+                            <div class="demo-msg__bubble">Paid Rahul 450</div>
+                            <div class="demo-msg__time">10:15 AM</div>
+                        </div>
+                        <div class="demo-msg demo-msg--bot" data-delay="3500">
+                            <div class="demo-msg__name">SplitKaro</div>
+                            <div class="demo-msg__bubble">✅ Amit settled ₹450 with Rahul. Balance: ₹0</div>
+                            <div class="demo-msg__time">10:15 AM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo__callouts">
+                    <div class="demo__callout">
+                        <div class="demo__callout-icon">💬</div>
+                        <p>No new app. No account. The bot lives in your existing group.</p>
+                    </div>
+                    <div class="demo__callout">
+                        <div class="demo__callout-icon">⚡</div>
+                        <p>One message to log an expense. The bot confirms immediately.</p>
+                    </div>
+                    <div class="demo__callout">
+                        <div class="demo__callout-icon">✅</div>
+                        <p>Settlements clear automatically. Balance goes to zero.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-label">How it works</div>
+            <h2 class="section-heading">One message to log.<br>One message to settle.</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step__number">01</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Add the bot</h3>
+                        <p class="step__desc">Add SplitKaro to any WhatsApp group like you'd add a contact. It joins as a participant and starts tracking immediately. Nothing changes about the group.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">02</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Type what you paid</h3>
+                        <p class="step__desc">"Paid 2000 for Airbnb." The bot reads it, calculates the split, and posts the breakdown. No form. No tap sequence. No new interface to learn.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step__number">03</div>
+                    <div class="step__content">
+                        <h3 class="step__title">Settle with one message</h3>
+                        <p class="step__desc">"Paid Rahul 500." The bot records it, updates every balance, and confirms the settlement. Ask "who owes what" anytime — you get a clean answer.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- P1-7: Privacy statement -->
+            <p class="problem__resolution" style="margin-top: 2rem;">SplitKaro only reads messages that include a spending keyword. No other messages are read or stored. Your conversations stay yours.</p>
+        </div>
+    </section>
+
+    <!-- ABOUT / FOUNDER STORY (P1-3: moved after How It Works) -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about__inner">
+                <div class="about__label section-label">Why this exists</div>
+                <blockquote class="about__quote">
+                    Every trip I've taken with friends ends the same way. Someone pulls up a notes app. Someone else starts a WhatsApp thread. Someone who paid for the hotel is still waiting three weeks later.
+                </blockquote>
+                <p class="about__body">I build software that automates how large buildings run — cutting energy waste, making operations smarter, more sustainable. We're talking ₹500 crore+ in infrastructure managed. But splitting a Goa trip with six friends? Still a mess.</p>
+                <p class="about__body">The problem isn't math. It's friction. Every solution needs a new app, a new login, and a ten-minute group chat to convince people to use it. Nobody does that. Everyone's already on WhatsApp.</p>
+                <p class="about__body about__body--strong">So I built SplitKaro to live where the conversation already happens.</p>
+                <div class="about__founder">
+                    <div class="about__founder-avatar">AD</div>
+                    <div>
+                        <div class="about__founder-name">Atul Dhaka</div>
+                        <div class="about__founder-title">Founder, SplitKaro</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EARLY ACCESS CTA -->
+    <section class="cta" id="early-access">
+        <div class="container">
+            <div class="cta__inner">
+                <div class="section-label section-label--light">Early Access</div>
+                <h2 class="cta__heading">Be among the first to try it.</h2>
+                <!-- P1-5: Added free signal. P1-6: Set expectation that we send the bot number via WhatsApp -->
+                <p class="cta__subhead">Free during early access. Drop your name and WhatsApp number — we'll message you the bot contact and instructions when your spot opens. No app download. No account setup.</p>
+                <!-- P0-1: Form wired to Formspree. TODO: Replace YOUR_EARLY_ACCESS_FORM_ID with your Formspree form ID from formspree.io/forms -->
+                <form class="cta__form" id="signup-form" action="https://formspree.io/f/YOUR_EARLY_ACCESS_FORM_ID" method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="name" class="form-label">Your name</label>
+                        <input type="text" id="name" name="name" class="form-input" placeholder="What do your friends call you?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label">WhatsApp number</label>
+                        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
+                    </div>
+                    <button type="submit" class="btn btn--cta" id="signup-btn">Get Early Access</button>
+                </form>
+                <p class="cta__note">We'll reach out on WhatsApp. No spam, ever.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__brand">
+                    <div class="footer__logo">SplitKaro</div>
+                    <div class="footer__tagline">Split without the stress.</div>
+                </div>
+                <nav class="footer__nav" aria-label="Footer navigation">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#early-access">Early Access</a>
+                </nav>
+            </div>
+            <div class="footer__bottom">
+                <span>Made with ❤️ in India</span>
+                <!-- P0-2: Fixed year from 2024 to 2026 -->
+                <span>© 2026 SplitKaro</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WIDGET LAUNCHERS -->
+    <div id="widget-launchers" class="widget-launchers">
+        <button id="launcher-qa" class="widget-launcher widget-launcher--qa" aria-label="Open Q&A chat">
+            <svg class="widget-launcher__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            <span class="widget-launcher__label">Ask me anything</span>
+        </button>
+        <button id="launcher-intake" class="widget-launcher widget-launcher--intake" aria-label="Get early access">
+            <svg class="widget-launcher__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+            <span class="widget-launcher__label">Get Early Access</span>
+        </button>
+    </div>
+
+    <!-- WIDGET 1: Q&A CHAT -->
+    <div id="qa-window" class="chatbot-window" style="display:none">
+        <div class="chatbot-header">
+            <div class="chatbot-header__avatar">SK</div>
+            <div class="chatbot-header__info">
+                <div class="chatbot-header__name">SplitKaro AI Assistant</div>
+                <div class="chatbot-header__status">Ask about SplitKaro</div>
+            </div>
+            <button class="chatbot-close" data-close="qa" aria-label="Close chat">&times;</button>
+        </div>
+        <div id="qa-messages" class="chatbot-messages">
+            <div class="chatbot-msg chatbot-msg--bot">
+                <div class="chatbot-msg__bubble">Hey, welcome to SplitKaro. I can answer questions about the product, how it works, or what makes it different. What would you like to know?</div>
+            </div>
+        </div>
+        <form id="qa-form" class="chatbot-input-area">
+            <input type="text" id="qa-input" class="chatbot-input" placeholder="Type a message..." autocomplete="off">
+            <button type="submit" class="chatbot-send" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </form>
+    </div>
+
+    <!-- WIDGET 2: EARLY ACCESS INTAKE -->
+    <div id="intake-window" class="chatbot-window chatbot-window--intake" style="display:none">
+        <div class="chatbot-header chatbot-header--intake">
+            <div class="chatbot-header__avatar chatbot-header__avatar--intake">EA</div>
+            <div class="chatbot-header__info">
+                <div class="chatbot-header__name">Get Early Access</div>
+                <div class="chatbot-header__status">Quick conversation, no forms</div>
+            </div>
+            <button class="chatbot-close" data-close="intake" aria-label="Close chat">&times;</button>
+        </div>
+        <div id="intake-progress" class="intake-progress">
+            <div class="intake-progress__bar">
+                <div id="intake-progress-fill" class="intake-progress__fill" style="width: 0%"></div>
+            </div>
+            <span id="intake-progress-label" class="intake-progress__label">Step 0 of 7</span>
+        </div>
+        <div id="intake-messages" class="chatbot-messages">
+        </div>
+        <form id="intake-form" class="chatbot-input-area">
+            <input type="text" id="intake-input" class="chatbot-input" placeholder="Type a message..." autocomplete="off">
+            <button type="submit" class="chatbot-send chatbot-send--intake" aria-label="Send message">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        // Dual widget system
+        (function() {
+            const launchers = document.getElementById('widget-launchers');
+            const launcherQA = document.getElementById('launcher-qa');
+            const launcherIntake = document.getElementById('launcher-intake');
+
+            // Q&A widget elements
+            const qaWindow = document.getElementById('qa-window');
+            const qaMessages = document.getElementById('qa-messages');
+            const qaForm = document.getElementById('qa-form');
+            const qaInput = document.getElementById('qa-input');
+
+            // Intake widget elements
+            const intakeWindow = document.getElementById('intake-window');
+            const intakeMessages = document.getElementById('intake-messages');
+            const intakeForm = document.getElementById('intake-form');
+            const intakeInput = document.getElementById('intake-input');
+            const intakeProgressFill = document.getElementById('intake-progress-fill');
+            const intakeProgressLabel = document.getElementById('intake-progress-label');
+
+            // State
+            let activeWidget = null; // 'qa' | 'intake' | null
+            const qaHistory = [];
+            const intakeHistory = [];
+            let intakeStarted = false;
+            let intakeComplete = false;
+
+            // --- Shared helpers ---
+            function addMessage(container, text, sender) {
+                const msg = document.createElement('div');
+                msg.className = 'chatbot-msg chatbot-msg--' + sender;
+                const bubble = document.createElement('div');
+                bubble.className = 'chatbot-msg__bubble';
+                bubble.textContent = text;
+                msg.appendChild(bubble);
+                container.appendChild(msg);
+                container.scrollTop = container.scrollHeight;
+            }
+
+            function showTyping(container) {
+                const msg = document.createElement('div');
+                msg.className = 'chatbot-msg chatbot-msg--bot chatbot-typing';
+                msg.innerHTML = '<div class="chatbot-msg__bubble chatbot-typing-dots"><span></span><span></span><span></span></div>';
+                container.appendChild(msg);
+                container.scrollTop = container.scrollHeight;
+                return msg;
+            }
+
+            function updateProgress(step) {
+                const pct = Math.round((step / 7) * 100);
+                intakeProgressFill.style.width = pct + '%';
+                intakeProgressLabel.textContent = 'Step ' + step + ' of 7';
+            }
+
+            // --- Open / Close ---
+            function openWidget(which) {
+                activeWidget = which;
+                launchers.style.display = 'none';
+                const win = which === 'qa' ? qaWindow : intakeWindow;
+                win.style.display = 'flex';
+                requestAnimationFrame(() => {
+                    win.classList.add('chatbot-window--open');
+                });
+                const inp = which === 'qa' ? qaInput : intakeInput;
+                inp.focus();
+
+                // Auto-start intake on first open
+                if (which === 'intake' && !intakeStarted) {
+                    intakeStarted = true;
+                    startIntake();
+                }
+            }
+
+            function closeWidget() {
+                const win = activeWidget === 'qa' ? qaWindow : intakeWindow;
+                win.classList.remove('chatbot-window--open');
+                activeWidget = null;
+                setTimeout(() => {
+                    win.style.display = 'none';
+                    launchers.style.display = 'flex';
+                }, 250);
+            }
+
+            launcherQA.addEventListener('click', () => openWidget('qa'));
+            launcherIntake.addEventListener('click', () => openWidget('intake'));
+
+            document.querySelectorAll('.chatbot-close').forEach(btn => {
+                btn.addEventListener('click', closeWidget);
+            });
+
+            // --- Q&A chat ---
+            qaForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const text = qaInput.value.trim();
+                if (!text) return;
+
+                addMessage(qaMessages, text, 'user');
+                qaInput.value = '';
+                qaInput.disabled = true;
+                qaHistory.push({ role: 'user', content: text });
+
+                const typingEl = showTyping(qaMessages);
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ messages: qaHistory }),
+                    });
+                    const data = await res.json();
+                    typingEl.remove();
+
+                    if (data.reply) {
+                        addMessage(qaMessages, data.reply, 'bot');
+                        qaHistory.push({ role: 'assistant', content: data.reply });
+                    } else {
+                        addMessage(qaMessages, 'Something went wrong. Try again in a moment.', 'bot');
+                    }
+                } catch (err) {
+                    typingEl.remove();
+                    addMessage(qaMessages, 'Connection error. Please try again.', 'bot');
+                }
+
+                qaInput.disabled = false;
+                qaInput.focus();
+            });
+
+            // --- Intake chat ---
+            async function startIntake() {
+                const triggerMsg = "I'd like to get early access to SplitKaro.";
+                intakeHistory.push({ role: 'user', content: triggerMsg });
+
+                const typingEl = showTyping(intakeMessages);
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ messages: intakeHistory }),
+                    });
+                    const data = await res.json();
+                    typingEl.remove();
+
+                    if (data.reply) {
+                        addMessage(intakeMessages, data.reply, 'bot');
+                        intakeHistory.push({ role: 'assistant', content: data.reply });
+                        if (data.intake_step) updateProgress(data.intake_step);
+                    }
+                } catch (err) {
+                    typingEl.remove();
+                    addMessage(intakeMessages, 'Connection error. Please try again.', 'bot');
+                }
+
+                intakeInput.focus();
+            }
+
+            intakeForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                if (intakeComplete) return;
+
+                const text = intakeInput.value.trim();
+                if (!text) return;
+
+                addMessage(intakeMessages, text, 'user');
+                intakeInput.value = '';
+                intakeInput.disabled = true;
+                intakeHistory.push({ role: 'user', content: text });
+
+                const typingEl = showTyping(intakeMessages);
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ messages: intakeHistory }),
+                    });
+                    const data = await res.json();
+                    typingEl.remove();
+
+                    if (data.reply) {
+                        addMessage(intakeMessages, data.reply, 'bot');
+                        intakeHistory.push({ role: 'assistant', content: data.reply });
+                    }
+
+                    if (data.intake_step) {
+                        updateProgress(data.intake_step);
+                    }
+
+                    if (data.intake_complete) {
+                        intakeComplete = true;
+                        updateProgress(7);
+                        intakeProgressFill.style.width = '100%';
+                        intakeProgressLabel.textContent = 'Complete';
+                        intakeInput.disabled = true;
+                        intakeInput.placeholder = 'All done — thanks for your interest';
+
+                        // Send to lead capture endpoint
+                        fetch('/api/generate-proposal', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                intake_data: data.intake_data,
+                                conversation: intakeHistory,
+                            }),
+                        }).catch(() => {});
+                        return;
+                    }
+                } catch (err) {
+                    typingEl.remove();
+                    addMessage(intakeMessages, 'Connection error. Please try again.', 'bot');
+                }
+
+                intakeInput.disabled = false;
+                intakeInput.focus();
+            });
+        })();
+    </script>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offset = 72;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Nav scroll state
+        const nav = document.getElementById('nav');
+        const onScroll = () => {
+            nav.classList.toggle('nav--scrolled', window.scrollY > 24);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Scroll reveal
+        const revealTargets = document.querySelectorAll(
+            '.step, .feature, .testimonial, .audience__card, .problem__card'
+        );
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        revealTargets.forEach(el => revealObserver.observe(el));
+
+        // Demo chat animation
+        let chatPlayed = false;
+        const demoSection = document.querySelector('.demo');
+        const demoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !chatPlayed) {
+                    chatPlayed = true;
+                    document.querySelectorAll('.demo-msg').forEach(msg => {
+                        const delay = parseInt(msg.dataset.delay) || 0;
+                        setTimeout(() => msg.classList.add('demo-msg--visible'), delay);
+                    });
+                    const dateLabel = document.getElementById('date-2');
+                    if (dateLabel) {
+                        setTimeout(() => { dateLabel.style.opacity = '1'; }, 2700);
+                    }
+                }
+            });
+        }, { threshold: 0.25 });
+        if (demoSection) demoObserver.observe(demoSection);
+
+        // P0-1: Signup form — submits to Formspree via AJAX
+        // TODO: Create a free account at formspree.io, make a new form, and replace
+        //       YOUR_EARLY_ACCESS_FORM_ID in the <form action> above with your real form ID.
+        document.getElementById('signup-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('signup-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+
+            try {
+                const res = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    btn.textContent = "You're on the list!";
+                    btn.style.background = 'oklch(0.44 0.11 192)';
+                    btn.style.color = 'oklch(0.97 0.01 192)';
+                    this.querySelectorAll('input').forEach(i => i.disabled = true);
+                    // GA4 event (P1-8)
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'early_access_signup', { event_category: 'conversion' });
+                    }
+                } else {
+                    btn.textContent = 'Something went wrong — try again';
+                    btn.disabled = false;
+                }
+            } catch (err) {
+                btn.textContent = 'Connection error — try again';
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
