@@ -40,7 +40,7 @@
     <!-- NAV -->
     <nav class="nav" id="nav">
         <div class="nav__inner">
-            <a href="#" class="nav__logo">SplitKaro</a>
+            <a href="#" class="nav__logo"><img src="logo-v2.svg" alt="SplitKaro" class="nav__logo-img" height="32"></a>
             <a href="#early-access" class="btn btn--nav">Get Early Access</a>
         </div>
     </nav>
@@ -49,7 +49,7 @@
     <section class="hero" id="hero">
         <div class="hero__inner">
             <div class="hero__content">
-                <div class="hero__eyebrow">Coming to WhatsApp near you</div>
+                <div class="hero__eyebrow">WhatsApp-native · No download · No signup</div>
                 <!-- P1-1: Headline rewritten to lead with WhatsApp differentiator -->
                 <h1 class="hero__headline">Your WhatsApp group<br>already knows who paid.</h1>
                 <p class="hero__subhead">SplitKaro tracks every expense, splits every bill, and records every settlement — inside the WhatsApp group you already use.</p>
@@ -75,9 +75,7 @@
                         <div class="chat-bubble chat-bubble--bot">Done ✅ Amit, Neha &amp; Priya each owe ₹450 to Rahul</div>
                     </div>
                 </div>
-                <div class="hero__badge hero__badge--1">₹450 each</div>
-                <div class="hero__badge hero__badge--2">✅ Settled</div>
-                <div class="hero__badge hero__badge--3">Balance: ₹0</div>
+                <!-- P2-4: Removed floating badges — redundant with phone chat content -->
             </div>
         </div>
     </section>
@@ -220,14 +218,23 @@
                 <blockquote class="about__quote">
                     Every trip I've taken with friends ends the same way. Someone pulls up a notes app. Someone else starts a WhatsApp thread. Someone who paid for the hotel is still waiting three weeks later.
                 </blockquote>
-                <p class="about__body">I build software that automates how large buildings run — cutting energy waste, making operations smarter, more sustainable. We're talking ₹500 crore+ in infrastructure managed. But splitting a Goa trip with six friends? Still a mess.</p>
+                <p class="about__body">We build software that automates how large buildings run — cutting energy waste, making operations smarter, more sustainable. We're talking ₹500 crore+ in infrastructure managed. But splitting a Goa trip with six friends? Still a mess.</p>
                 <p class="about__body">The problem isn't math. It's friction. Every solution needs a new app, a new login, and a ten-minute group chat to convince people to use it. Nobody does that. Everyone's already on WhatsApp.</p>
-                <p class="about__body about__body--strong">So I built SplitKaro to live where the conversation already happens.</p>
-                <div class="about__founder">
-                    <div class="about__founder-avatar">AD</div>
-                    <div>
-                        <div class="about__founder-name">Atul Dhaka</div>
-                        <div class="about__founder-title">Founder, SplitKaro</div>
+                <p class="about__body about__body--strong">So we built SplitKaro to live where the conversation already happens.</p>
+                <div class="about__founders">
+                    <div class="about__founder">
+                        <div class="about__founder-avatar">AD</div>
+                        <div>
+                            <div class="about__founder-name">Atul Dhaka</div>
+                            <div class="about__founder-title">Co-Founder, SplitKaro</div>
+                        </div>
+                    </div>
+                    <div class="about__founder">
+                        <div class="about__founder-avatar">TG</div>
+                        <div>
+                            <div class="about__founder-name">Tapish Garg</div>
+                            <div class="about__founder-title">Co-Founder, SplitKaro</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -239,7 +246,7 @@
         <div class="container">
             <div class="cta__inner">
                 <div class="section-label section-label--light">Early Access</div>
-                <h2 class="cta__heading">Be among the first to try it.</h2>
+                <h2 class="cta__heading">First 500 users get lifetime free access.</h2>
                 <!-- P1-5: Added free signal. P1-6: Set expectation that we send the bot number via WhatsApp -->
                 <p class="cta__subhead">Free during early access. Drop your name and WhatsApp number — we'll message you the bot contact and instructions when your spot opens. No app download. No account setup.</p>
                 <!-- P0-1: Form wired to Formspree. TODO: Replace YOUR_EARLY_ACCESS_FORM_ID with your Formspree form ID from formspree.io/forms -->
@@ -252,7 +259,7 @@
                         <label for="phone" class="form-label">WhatsApp number</label>
                         <input type="tel" id="phone" name="phone" class="form-input" placeholder="+91 98765 43210" required>
                     </div>
-                    <button type="submit" class="btn btn--cta" id="signup-btn">Get Early Access</button>
+                    <button type="submit" class="btn btn--cta" id="signup-btn">I'm in</button>
                 </form>
                 <p class="cta__note">We'll reach out on WhatsApp. No spam, ever.</p>
             </div>
